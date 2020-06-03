@@ -60,7 +60,7 @@
         }
 
         pre * {
-            font-family: Calibri;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .preview {
@@ -86,20 +86,19 @@
     
    
         .btn {
-            float: center;
-            text-align: center;
-            border: solid rgb(218, 215, 215) 1px;
-            border-radius: 1em;
-            margin: 1em .2em;
-            width: 8em;
-            height: 4em;
-            line-height: 4em;
-            user-select: none;
-            -moz-user-select: none;
-            -o-user-select: none;
-            -khtml-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
+            background-color: black; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: solid;
+  display: inline-block;
+  align: center;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
         }
         
         .btn:hover {
@@ -108,7 +107,13 @@
         }
 
         .btn.download {
-            margin-right: 5px;
+        position:relative;
+            margin: 0px;
+            position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%)
         }
 
         #arrow-back,
@@ -142,7 +147,7 @@
 
         * {
             box-sizing: border-box;
-            font-family: serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .markdown-body {
@@ -390,7 +395,8 @@
             }
 
             .btn.download {
-                margin-right: .3em;
+            position: relative;
+                
             }
 
             .logo {
@@ -964,33 +970,7 @@
                     document.querySelector('.btn.download').addEventListener('click',
                         () => location.href = url
                     );
-                    document.querySelector('.btn.quote').addEventListener('click',
-                        event => {
-                            previewHandler.copyTextContent(null, window.api.url + '?file=' + path);
-                            const btn = document.querySelector('.btn.quote');
-                            btn.innerHTML = 'Copied';
-                            setTimeout(() => btn.innerHTML = 'Quote', 250);
-                        }
-                    );
-                    document.querySelector('.btn.share').addEventListener('click',
-                        event => {
-                            const sharePath = () => {
-                                let arr = window.backFordwardCache.current.split('/');
-                                let r = '';
-                                for (let i = 1; i < arr.length; i++) {
-                                    r += '/' + arr[i];
-                                }
-                                return r;
-                            }
-                            previewHandler.copyTextContent(null,
-                                window.location.origin +
-                                window.location.pathname +
-                                '?path=' + sharePath());
-                            const btn = document.querySelector('.btn.share');
-                            btn.innerHTML = 'Copied';
-                            setTimeout(() => btn.innerHTML = 'Share It', 250);
-                        }
-                    );
+
                     switchRightDisplay('preview');
 
                     let start = null;
@@ -1320,8 +1300,8 @@
                     <div class="info">
                         <div class="file-name"></div>
                         <div class="btn download">Download</div>
-                        <div class="btn quote">Quote</div>
-                        <div class="btn share">Share It</div>
+                       
+                        
                     </div>
                     <div class="content"></div>
                 </div>
